@@ -74,7 +74,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        // laravel @foreach cript
+                        @php $i=0 @endphp
+                        @foreach ($siswas as $siswa)
+                        @php $i++ @endphp
+                        <tr>
+                            <td>{{ $i }}</td>
+                            <td>{{ $siswa->nama}}</td>
+                            <td>{{ $siswa->lahir}}, {{ \carbon\carbon::parse($siswa->tgl)->format('d/m/Y')}}</td>
+
+                            <td>{{  $siswa->jk  }}</td>
+                            <td>{{  $siswa->agama  }}</td>
+                            <td>{{  $siswa->alamat  }}</td>
+                            <td>{{  $siswa->telp  }}</td>
+                            <td>{{  $siswa->email  }}</td>
+                            <td>
+                                <button type="button" class="btn btn-warning">Edit</button>
+                                <button type="button" class="btn btn-danger">Delete</button>
+                                <button type="button" class="btn btn-primary">Lihat</button>
+                            </td>
+                        </tr>
+                        @endforeach
+
+
                     </tbody>
                 </table>
                 <button type="button" class="btn btn-primary">Add New</button>
